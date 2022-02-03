@@ -1,38 +1,292 @@
-.App {
+/* .header{
+    display: flex;
+    flec
+} */
+.App{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.left {
+  border: 4px solid #ff7070;
+  /* margin-top: 200px; */
+  border-top-left-radius: 50px;
+  padding: 10px 30px;
+}
+.header {
+  margin-top: -125px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.card-avatar {
+  width: 28%;
+  padding: 0 !important;
+}
+.card-title {
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 80px;
+  letter-spacing: 1.3608026504516602px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-subheader {
+  font-size: 22px;
+  font-weight: 600;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header-inner {
+  margin-left: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+}
+.what-to p {
+  font-size: 14px;
+}
+.what-to{
+ margin-top: 20px;
+}
+.what-to span {
+  font-size:25px;
+  font-weight: 700;
+}
+.select {
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+}
+.select-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.select-price {
+  background-color:  rgba(255, 0, 0, 0.05);
+  border-radius: 30px;
+  padding: 8px 20px;
+  color: black;
+  font-weight: 700;
 }
 
-.App-link {
-  color: #61dafb;
+
+.select-select {
+  width: 20%;
+  padding: 6px;
+  border: 1px solid black;
+  font-weight: 700;
+}
+.select-text {
+  font-weight: 800;
+  font-size: 22px;
+}
+.date button {
+  width: 100%;
+  background-color: #ff7070;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+}
+.date-date {
+  font-weight: 900;
+  font-size: 38px;
+  margin-bottom: 5px;
+}
+.date-inner {
+  height: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.date-inner label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+.date-inner::-webkit-scrollbar {
+  width: 5px;
+}
+.date-inner::-webkit-scrollbar-track {
+  background: lightgray;
+}
+.date-inner::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+}
+.checkmark {
+    margin-right: 38px;
+}
+.custom-radio-btn{
+   width: 24px;
+   height: 24px;
+   background-color: #fff;
+   border: 4px solid #ff7070;
+   border-radius: 50%;
+}
+.custom-radio-btn .checkmark{
+  width: calc(100%-5px);
+  height:calc(100%-5px);
+  background-color: red !important;
+}
+.custom-radio-btn input{
+   display: none
+}
+.custom-radio-btn input:checked +.checkmark{
+  display: inline-block;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+.first{
+  flex:.5;
 }
+
+.number{
+  display: flex;
+  padding: 0 40px;
+}
+
+  .second{
+    flex:.5;
+      /* height: 100%;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      background-color: red; */
+      /* margin-top: 70px; */
+  }
+  .calendar-inner{
+      border-radius: 40px;
+      border: 2px solid #ff7070;
+      background-color: #fff;
+      font-size: 24px !important;
+      width: 100%;
+      font-weight: 600;
+  }
+  .inner{
+    height: 90%;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: center;
+  }
+  .calendar-outer{
+      border: none;
+      background: #FFABAB;
+      width: 80%;
+      padding-bottom: 8px;
+      border-radius: 40px;
+      padding-top: 0 !important;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      box-shadow: 2px 13px 24px -3px rgba(255,171,171,0.75);
+-webkit-box-shadow: 2px 13px 24px -3px rgba(255,171,171,0.75);
+-moz-box-shadow: 2px 13px 24px -3px rgba(255,171,171,0.75);
+  }
+
+  @media (max-width: 1020px) {
+    .calendar-inner{
+      font-size: 18px !important;
+  }
+  .card-title {
+    font-size: 35px;
+    line-height: 50px;
+  }
+  .card-subheader {
+    font-size: 18px;
+  }
+  .header-inner {
+    margin-top: 28px;
+    margin-left: 10px;
+  }
+  .header {
+    margin-top: -95px;
+  }
+  .select {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .select-price {
+    padding: 7px 10px;
+    font-size: 14px;
+  }
+  .select-text {
+    font-size: 18px;
+  }
+  }
+
+  @media (max-width: 850px) {
+    .number{
+      display: flex;
+      flex-direction:column-reverse;
+      padding: 0 40px;
+    }
+    .header-inner {
+      margin-left: 10px;
+    }
+    .second{
+      margin-bottom: 120px;
+    }
+    .card-title{
+   font-size: 30px;
+   line-height:50px;
+    }
+    .left {
+      padding: 10px 15px;
+    }
+    .header {
+      align-items: center !important;
+      margin-top: -82px;
+  
+    }
+    .card-subheader{
+    font-size: 16px;
+    }
+    .select-text{
+      font-size:13px;
+    }
+    .select-select{
+      width: 25%;
+    }
+    .select-price{
+      font-size: 12px;
+    }
+    .what-to{
+      display: none;
+    }
+    .card-avatar {
+      width: 29%;
+    }
+    .calendar-outer{
+      width: 98%;
+    }
+  }
+  @media (max-width: 470px){
+    .number{
+      padding: 0 10px;
+    }
+   
+    .calendar-inner{
+      font-size: 20px !important;
+  }
+  } 
