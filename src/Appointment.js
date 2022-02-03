@@ -173,48 +173,44 @@ const Appointment = () => {
                           position: "relative",
                         }}
                       >
-                        <FormControl>
-                          <RadioGroup value={value} onChange={handleChange}>
-                            {time.map((r) => {
-                              return (
-                                <FormControlLabel
-                                  className="radio-outer"
-                                  value={r.value}
-                                  control={<Radio />}
-                                  label={
-                                    <Typography className="radio-label">
-                                      {r.value}
-                                    </Typography>
-                                  }
-                                />
-                              );
-                            })}
-                          </RadioGroup>
-                        </FormControl>
+                        <RadioGroup value={value} onChange={handleChange}>
+                          {time.map((r) => {
+                            return (
+                              <FormControlLabel
+                                className="radio-outer"
+                                value={r.value}
+                                control={<Radio />}
+                                label={
+                                  <Typography className="radio-label">
+                                    {r.value}
+                                  </Typography>
+                                }
+                              />
+                            );
+                          })}
+                        </RadioGroup>
                       </Grid>
                       <Grid
                         item
                         xs={6}
                         style={{ display: "flex", flexDirection: "column" }}
                       >
-                        <FormControl>
-                          <RadioGroup value={value} onChange={handleChange}>
-                            {time2.map((r) => {
-                              return (
-                                <FormControlLabel
-                                  className="radio-outer"
-                                  value={r.value}
-                                  control={<Radio />}
-                                  label={
-                                    <Typography className="radio-label">
-                                      {r.value}
-                                    </Typography>
-                                  }
-                                />
-                              );
-                            })}
-                          </RadioGroup>
-                        </FormControl>
+                        <RadioGroup value={value} className="radio-main" onChange={handleChange}>
+                          {time2.map((r) => {
+                            return (
+                              <FormControlLabel
+                                className="radio-outer"
+                                value={r.value}
+                                control={<Radio />}
+                                label={
+                                  <Typography className="radio-label">
+                                    {r.value}
+                                  </Typography>
+                                }
+                              />
+                            );
+                          })}
+                        </RadioGroup>
                       </Grid>
                     </Grid>
                   </div>{" "}
