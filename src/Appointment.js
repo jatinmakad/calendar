@@ -7,6 +7,7 @@ import {
   Grid,
   Radio,
   RadioGroup,
+  Typography,
 } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import DayPicker, { DateUtils } from "react-day-picker";
@@ -15,11 +16,82 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import "./App.css";
 import Icon from "./jhonny.png";
+import DialogBox from "./Dialog";
+const data = [
+  {
+    value: "1500",
+  },
+  {
+    value: "3000",
+  },
+  {
+    value: "6000",
+  },
+];
+const time = [
+  {
+    value: "08:00",
+  },
+  {
+    value: "09:00",
+  },
+  {
+    value: "09:30",
+  },
+  {
+    value: "10:00",
+  },
+  {
+    value: "11:00",
+  },
+  {
+    value: "11:30",
+  },
+  {
+    value: "12:00",
+  },
+];
+const time2 = [
+  {
+    value: "13:00",
+  },
+  {
+    value: "14:00",
+  },
+  {
+    value: "15:30",
+  },
+  {
+    value: "16:00",
+  },
+  {
+    value: "17:00",
+  },
+  {
+    value: "18:30",
+  },
+  {
+    value: "19:00",
+  },
+];
 const Appointment = () => {
-  const [date, setData] = useState("");
+  const [date, setData] = useState(new Date());
+  const [option, setOption] = useState("0");
+  const [value, setValue] = React.useState("");
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
   const handleDayClick = (day, { selected }) => {
     setData(selected ? undefined : day);
   };
+  const submit = () => {
+    setValue("");
+  };
+  let day = date?.toString().slice(4, 8);
+  let dateNo = date?.toString().slice(7, 10);
+  let condition =
+    date?.toString().slice(4, 10) === new Date()?.toString().slice(4, 10);
   const today = new Date();
   const modifiers = {
     currentDay: new Date(),
@@ -35,7 +107,7 @@ const Appointment = () => {
       color: "#fff",
     },
   };
-  const [value, onChange] = useState(new Date());
+  console.log(date);
   return (
     <div
       style={{
@@ -68,135 +140,94 @@ const Appointment = () => {
             </div>
             <div className="select">
               <p className="select-text">Select Duration</p>
-              <select className="select-select">
-                <option>15 Mins</option>
-                <option>30 Mins</option>
-                <option>50 Mins</option>
+              <select
+                className="select-select"
+                onChange={(e) => setOption(e.target.value)}
+              >
+                <option value="0">15 Mins</option>
+                <option value="1">30 Mins</option>
+                <option value="2">50 Mins</option>
               </select>
-              <p className="select-price">INR 2500/hour</p>
+              <p className="select-price">INR {data[option].value}/hour</p>
             </div>
             <div className="date">
-              <span className="date-date">9th July</span>
-              <div className="date-inner">
-                <Grid spacing={2} container lg={12}>
-                  <Grid
-                    item
-                    xs={6}
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      position: "relative",
-                    }}
-                  >
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                  </Grid>
-                  <Grid
-                    item
-                    xs={6}
-                    style={{ display: "flex", flexDirection: "column" }}
-                  >
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                        name="sample"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                    <label className="custom-radio-btn">
-                      <input
-                        type="radio"
-                      />{" "}
-                      <span className="checkmark"></span>
-                      16:50
-                    </label>
-                  </Grid>
-                </Grid>
-              </div>
-              <button>Book Now</button>
+              {date ? (
+                <span className="date-date">
+                  {" "}
+                  {dateNo}
+                  <span style={{ marginLeft: "5px" }}>{day}</span>
+                </span>
+              ) : (
+                <span className="date-date">Today</span>
+              )}
+              {condition || date === undefined ? (
+                <>
+                  <div className="date-inner">
+                    <Grid spacing={2} container lg={12}>
+                      <Grid
+                        item
+                        xs={6}
+                        style={{
+                          display: "flex",
+                          flexDirection: "column",
+                          position: "relative",
+                        }}
+                      >
+                        <FormControl>
+                          <RadioGroup value={value} onChange={handleChange}>
+                            {time.map((r) => {
+                              return (
+                                <FormControlLabel
+                                  className="radio-outer"
+                                  value={r.value}
+                                  control={<Radio />}
+                                  label={
+                                    <Typography className="radio-label">
+                                      {r.value}
+                                    </Typography>
+                                  }
+                                />
+                              );
+                            })}
+                          </RadioGroup>
+                        </FormControl>
+                      </Grid>
+                      <Grid
+                        item
+                        xs={6}
+                        style={{ display: "flex", flexDirection: "column" }}
+                      >
+                        <FormControl>
+                          <RadioGroup value={value} onChange={handleChange}>
+                            {time2.map((r) => {
+                              return (
+                                <FormControlLabel
+                                  className="radio-outer"
+                                  value={r.value}
+                                  control={<Radio />}
+                                  label={
+                                    <Typography className="radio-label">
+                                      {r.value}
+                                    </Typography>
+                                  }
+                                />
+                              );
+                            })}
+                          </RadioGroup>
+                        </FormControl>
+                      </Grid>
+                    </Grid>
+                  </div>{" "}
+                  <button type="submit" onClick={submit}>
+                    Book Now
+                  </button>{" "}
+                </>
+              ) : (
+                <>
+                  <p className="available">Not Available</p>
+                  <DialogBox dateNo={dateNo} day={day} />
+                </>
+              )}
             </div>
           </div>
         </div>
