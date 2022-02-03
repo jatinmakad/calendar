@@ -82,6 +82,7 @@ body{
   width: 20%;
   padding: 6px;
   border: 1px solid black;
+  background-color: #fff;
   font-weight: 700;
 }
 .select-text {
@@ -241,6 +242,9 @@ body{
       flex-direction:column-reverse;
       padding: 0 40px;
     }
+    .date-inner label {
+      font-size: 24px;
+    }
     .header-inner {
       margin-left: 10px;
     }
@@ -251,6 +255,10 @@ body{
    font-size: 30px;
    line-height:50px;
     }
+    .custom-radio-btn{
+      width: 20px;
+      height: 20px;
+   }
     .left {
       padding: 10px 15px;
     }
