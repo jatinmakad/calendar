@@ -322,6 +322,7 @@ font-weight: 900 !important;
 }
 
 @media (max-width: 850px) {
+  
   .number {
     display: flex;
     flex-direction: column-reverse;
