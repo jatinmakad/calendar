@@ -19,7 +19,7 @@ body {
   padding: 10px 30px;
 }
 .header {
-  margin-top: -125px;
+  margin-top: -100px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -30,7 +30,7 @@ body {
   padding: 0 !important;
 }
 .card-title {
-  font-size: 50px;
+  font-size: 45px;
   font-style: normal;
   font-weight: 900;
   line-height: 80px;
@@ -38,7 +38,7 @@ body {
   text-align: center;
 }
 .card-subheader {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
 }
 .header-inner {
@@ -159,6 +159,7 @@ body {
 .number {
   display: flex;
   padding: 0 40px;
+  width: 75%;
 }
 
 .second {
@@ -275,6 +276,11 @@ font-weight: 900 !important;
    
   margin: 2px !important;
 }
+@media (max-width: 1200px) {
+.number {
+  width: 90%;
+}
+}
 @media (max-width: 1020px) {
   .calendar-inner {
     font-size: 18px !important;
@@ -293,6 +299,9 @@ font-weight: 900 !important;
   .header {
     margin-top: -95px;
   }
+  .number {
+    width: 100% !important;
+  }
   .select {
     display: flex;
     flex-direction: row;
@@ -305,6 +314,10 @@ font-weight: 900 !important;
   }
   .select-text {
     font-size: 18px;
+  }
+  .radio-label{
+    font-size: 22px !important;
+  letter-spacing: 1px !important;
   }
 }
 
@@ -331,6 +344,10 @@ font-weight: 900 !important;
   }
   .date-inner label {
     font-size: 24px;
+  }
+  .date-date {
+    font-size: 32px;
+    margin-bottom: 2px !important;
   }
   .header-inner {
     margin-left: 10px;
@@ -377,23 +394,38 @@ font-weight: 900 !important;
 }
 @media (max-width: 470px) {
   .number {
-    padding: 0 10px;
+    padding: 0 10px !important;
+    width:  100% !important;
   }
+  .radio-label{
+    font-size: 20px !important;
+  }
+  .radio-outer .MuiSvgIcon-root{
+    font-size: 24px !important;
+    }
   .header {
-  
     margin-top: -88px !important;
      margin-bottom: 20px;
   }
   .calendar-inner {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
-  .header{
-    /* margin-bottom: 20px; */
+}
+@media (min-width: 768px) and (max-width: 790px){
+  .number{
+    width: 60% !important;
   }
+  .header {
+    margin-top: -100px !important;
+  }
+
 }
 @media (max-width: 1280px) and (max-height: 800px){
   .header {
     margin-top: -100px;
+  }
+  .number{
+    width: 90% !important;
   }
 }
 @media (max-width: 1024px) and (max-height: 600px){
@@ -403,6 +435,19 @@ font-weight: 900 !important;
   .header {
     margin-top: -90px;
   }
+  .radio-outer .MuiSvgIcon-root{
+    font-size: 24px !important;
+    }
+  .calendar-inner{
+    font-size: 20px !important;
+  }
+  .select-text{
+    font-size: 18px;
+  }
+  .radio-label{
+    font-size: 23px !important;
+  }
+ 
 }
 @media (max-width: 540px) and (max-height: 720px){
   .header {
@@ -412,6 +457,14 @@ font-weight: 900 !important;
 @media (max-width: 912px) and (max-height: 1368px){
   .header {
     margin-top: -90px;
+  }
+}
+@media (min-width: 820px) and (max-width: 840px){
+  .number{
+    width: 60% !important;
+  } 
+   .header {
+    margin-top: -105px !important;
   }
 }
 
