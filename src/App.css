@@ -271,10 +271,11 @@ font-size: 35px !important;
 border: none !important;
 font-weight: 900 !important;
 }
-
-.radio-outer{
-   
+.radio-outer{ 
   margin: 2px !important;
+}
+.dialog-btn:hover{
+background-color:#ff7070 !important;
 }
 @media (max-width: 1200px) {
 .number {
@@ -467,6 +468,33 @@ font-weight: 900 !important;
    .header {
     margin-top: -105px !important;
   }
+}
+@media (max-width: 320px) {
+  .card-title{
+    font-size: 22px !important;
+  }
+  .header {
+    margin-top: -80px !important;
+  }
+  .card-subheader{
+    font-size: 14px;
+  }
+  .select-text{
+    font-size: 10px;
+  }
+  .select-price{
+    font-size: 10px !important;
+  }
+  .select-select{
+    font-size: 10px;
+    width: 35%;
+  }
+  .radio-label{
+    font-size: 14px !important;
+  }
+  .radio-outer .MuiSvgIcon-root{
+    font-size: 18px !important;
+    }
 }
 
 

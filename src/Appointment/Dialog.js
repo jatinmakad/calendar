@@ -9,7 +9,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import Typography from "@material-ui/core/Typography";
-import "./App.css";
+import "../App.css";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -68,7 +68,7 @@ export default function DialogBox({ dateNo, day }) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="outlined" className="dialog-btn" onClick={handleClickOpen}>
         Request a Session
       </Button>
       <BootstrapDialog
@@ -103,7 +103,7 @@ export default function DialogBox({ dateNo, day }) {
           </div>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus className="submit-btn" onClick={handleClose}>
+          <Button className="submit-btn" onClick={handleClose}>
             Request a Seassion
           </Button>
         </DialogActions>

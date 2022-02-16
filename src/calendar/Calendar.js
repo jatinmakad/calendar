@@ -3,9 +3,9 @@ import DayPicker, { DateUtils } from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import Collapse from "@material-ui/core/Collapse";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import "./Demo.css";
+import "./Calendar.css";
 import Checkbox from "@material-ui/icons/CheckBox";
-import "./App.css";
+import "../App.css";
 import {
   Avatar,
   CardHeader,
@@ -18,8 +18,8 @@ import {
   Typography,
 } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import Test from "./Test";
-function Demo() {
+import Test from "../Test";
+function Calendar() {
   const [date, setData] = useState([{ date: new Date(), id: 1 }]);
   const [da, setDa] = useState([]);
   const [collapse, setCollapse] = useState(0);
@@ -116,7 +116,6 @@ function Demo() {
   const cK =(e,r) => {
     // setSs(e)
   }
-  
   return (
     <div
       style={{
@@ -177,7 +176,7 @@ function Demo() {
                     )}
                   </p>
                   <Collapse in={ind === collapse} timeout="auto" unmountOnExit>
-                    <div className="date-inner-left date-inner-sceond">
+                    <div className="date-inner-left date-inner-sceond" key={e.date}>
                       <Grid spacing={2} container lg={12}>
                         <Grid
                           item
@@ -187,6 +186,7 @@ function Demo() {
                             flexDirection: "column",
                             position: "relative",
                           }}
+                          
                           onClick={() => cK(ind,collapse)}
                         >
                           <Test
@@ -266,7 +266,7 @@ function Demo() {
     </div>
   );
 }
-export default Demo;
+export default Calendar;
 
 const time = [
   {

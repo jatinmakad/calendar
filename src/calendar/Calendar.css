@@ -140,3 +140,27 @@
     margin-right: 4px !important;
   }
 }
+@media (max-width: 320px) {
+    .calendar-inner{
+      font-size: 12px !important;
+    }
+    .second-bottom p{
+      font-size: 9px !important;
+    }
+    .demo-second button{
+      font-size: 12px !important;
+      padding: 8px 35px !important;
+    }
+    .update{
+      font-size: 12px !important;
+    }
+    .radio-label-left{
+      font-size: 14px !important;
+    }
+    .select-all span{
+      font-size: 12px;
+    }
+    .date-format-span{
+      font-size: 24px;
+    }
+}

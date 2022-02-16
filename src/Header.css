@@ -7,7 +7,7 @@
     align-items: center;
     margin-bottom: 100px;
     width: 100%;
-    background-image: url("./bgTop.png");
+    background-image: url("./Images/bgTop.png");
     background-size: 100% 100%;
   }
   .header-in {
@@ -77,6 +77,14 @@
   @media (max-width: 850px) {
     .header-main {
       margin-bottom: 20px;
+    }
+  }
+  @media (max-width: 320px) {
+    .header-inner-main h1{
+      font-size: 24px !important;
+    }
+    .notification .MuiSvgIcon-root{
+      font-size: 24px;
     }
   }
   

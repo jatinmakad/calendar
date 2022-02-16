@@ -14,8 +14,8 @@ import DayPicker, { DateUtils } from "react-day-picker";
 // import "react-day-picker/lib/style.css";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import "./App.css";
-import Icon from "./jhonny.png";
+import "../App.css";
+import Icon from "../Images/jhonny.png";
 import DialogBox from "./Dialog";
 const data = [
   {
