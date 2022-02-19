@@ -4,6 +4,7 @@ import Header from './Header';
 import { Routes, Route, Link } from "react-router-dom";
 import Homepage from "./HomePage";
 import Calendar from "./calendar/Calendar";
+import Demo from './Demo';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/appointment" element={<Appointment />} />
       </Routes>
      <Homepage/>
+     {/* <Demo/> */}
     </div>
   
   );

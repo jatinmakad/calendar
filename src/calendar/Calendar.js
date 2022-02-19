@@ -1,81 +1,217 @@
-import React, { useState, useEffect } from "react";
-import DayPicker, { DateUtils } from "react-day-picker";
+import React, { useState } from "react";
+import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import Collapse from "@material-ui/core/Collapse";
-import FilterListIcon from "@material-ui/icons/FilterList";
 import "./Calendar.css";
-import Checkbox from "@material-ui/icons/CheckBox";
 import "../App.css";
-import {
-  Avatar,
-  CardHeader,
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Grid,
-  Radio,
-  RadioGroup,
-  Typography,
-} from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import Test from "../Test";
+import moment from "moment";
 function Calendar() {
-  const [date, setData] = useState([{ date: new Date(), id: 1 }]);
-  const [da, setDa] = useState([]);
+  const [date, setData] = useState([
+    {
+      date: new Date(),
+      id: 1,
+      time: [
+        {
+          value: "08:00",
+          isChecked: false,
+        },
+        {
+          value: "09:00",
+          isChecked: false,
+        },
+        {
+          value: "09:30",
+          isChecked: false,
+        },
+        {
+          value: "10:00",
+          isChecked: false,
+        },
+        {
+          value: "11:00",
+          isChecked: false,
+        },
+        {
+          value: "11:30",
+          isChecked: false,
+        },
+        {
+          value: "12:00",
+          isChecked: false,
+        },
+        {
+          value: "13:00",
+          isChecked: false,
+        },
+        {
+          value: "14:00",
+          isChecked: false,
+        },
+        {
+          value: "15:30",
+          isChecked: false,
+        },
+        {
+          value: "16:00",
+          isChecked: false,
+        },
+        {
+          value: "17:00",
+          isChecked: false,
+        },
+        {
+          value: "18:30",
+          isChecked: false,
+        },
+        {
+          value: "19:00",
+          isChecked: false,
+        },
+        {
+          value: "13:00",
+          isChecked: false,
+        },
+        {
+          value: "14:00",
+          isChecked: false,
+        },
+        {
+          value: "15:30",
+          isChecked: false,
+        },
+        {
+          value: "16:00",
+          isChecked: false,
+        },
+        {
+          value: "17:00",
+          isChecked: false,
+        },
+        {
+          value: "18:30",
+          isChecked: false,
+        },
+        {
+          value: "19:00",
+          isChecked: false,
+        },
+      ],
+    },
+  ]);
   const [collapse, setCollapse] = useState(0);
   const [select, setSelected] = useState(false);
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    // setUsers(userDataSelect);
-  }, []);
   const handleDayClick = (day, { selected }) => {
-    //  console.log(day,selected,"=====")
     const selectedDays = date.concat();
     if (selected) {
-      // let updated = date.filter((e) => e.id !==   )
-      // setData(updated)
-      // console.log(updated,"=============")
-      // const selectedIndex = selectedDays.findIndex((selectedDay) =>
-      //   DateUtils.isSameDay(selectedDay, day)
-      // );
-      // selectedDays.splice(selectedIndex, 1);
     } else {
       let no = date.length + 1;
-      selectedDays.push({ date: day, id: no });
+      selectedDays.push({
+        date: day,
+        id: no,
+        time: [
+          {
+            value: "08:00",
+            isChecked: false,
+          },
+          {
+            value: "09:00",
+            isChecked: false,
+          },
+          {
+            value: "09:30",
+            isChecked: false,
+          },
+          {
+            value: "10:00",
+            isChecked: false,
+          },
+          {
+            value: "11:00",
+            isChecked: false,
+          },
+          {
+            value: "11:30",
+            isChecked: false,
+          },
+          {
+            value: "12:00",
+            isChecked: false,
+          },
+          {
+            value: "13:00",
+            isChecked: false,
+          },
+          {
+            value: "14:00",
+            isChecked: false,
+          },
+          {
+            value: "15:30",
+            isChecked: false,
+          },
+          {
+            value: "16:00",
+            isChecked: false,
+          },
+          {
+            value: "17:00",
+            isChecked: false,
+          },
+          {
+            value: "18:30",
+            isChecked: false,
+          },
+          {
+            value: "19:00",
+            isChecked: false,
+          },
+          {
+            value: "13:00",
+            isChecked: false,
+          },
+          {
+            value: "14:00",
+            isChecked: false,
+          },
+          {
+            value: "15:30",
+            isChecked: false,
+          },
+          {
+            value: "16:00",
+            isChecked: false,
+          },
+          {
+            value: "17:00",
+            isChecked: false,
+          },
+          {
+            value: "18:30",
+            isChecked: false,
+          },
+          {
+            value: "19:00",
+            isChecked: false,
+          },
+        ],
+      });
     }
+
     setData(selectedDays);
   };
   const handleDayClick2 = (day, { selected }) => {
     setData("");
     setData([{ date: selected ? new Date() : day }]);
   };
-  const handleChange = (e) => {
-    const { name, checked } = e.target;
-    if (name === "allSelect") {
-      let tempUser = users.map((user) => {
-        return { ...user, isChecked: checked };
-      });
-      setUsers(tempUser);
-    } else {
-      let tempUser = users.map((user) =>
-        user.name === name ? { ...user, isChecked: checked } : user
-      );
-      setUsers(tempUser);
-    }
-  };
-
   const handleExpandClick = (value) => {
     if (collapse === value) {
       setCollapse("");
     } else {
       setCollapse(value);
     }
-  };
-  const submit = (i) => {
-    let news = date.map((r, index) =>
-      index === i ? { ...date[i], value: users } : r
-    );
-    setData(news);
   };
   const today = new Date();
   const modifiers = {
@@ -92,30 +228,44 @@ function Calendar() {
       color: "#fff",
     },
   };
-  const [checked, setChecked] = useState([]);
-  const selectAll = () => {
-    console.log();
-    setChecked(
-      time.map((r) => r.value)
+  const selectAll = (ind) => {
+    let temp = date.map((r, index) =>
+      index === ind ? r.time.map((e) => ({ ...e, isChecked: true })) : r
     );
-  };
-  const clearAll = () => {
-    setChecked([]);
-  };
-  const handleCheck = (event,time,no) => {
-    // date.map((r) => r.date === time ? setData((r) => [...r,[event]]) : r)
-    // setData((r) => r.map((e) => e.date === time ? {...r,event} : e))
-  // date.map((r) => r.date == time ? setChecked((prev) => [...prev,event]) : r)
-    // setChecked(date.map((r) => r.date == time ? (prev) => [...prev,event] : r))
-    setChecked((prev) =>
-      prev.includes(event) ? prev.filter((r) => r !== event) : [...prev, event]
+    let updated = temp.filter((r, index) => index === ind);
+    let final = date.map((r, index) =>
+      index === ind ? { ...r, time: updated[0] } : r
     );
+    setData(final);
   };
-  // console.log(date,"=================")
-  const [ss,setSs] = useState([]);
-  const cK =(e,r) => {
-    // setSs(e)
-  }
+  const clearAll = (ind) => {
+    let temp = date.map((r, index) =>
+      index === ind ? r.time.map((e) => ({ ...e, isChecked: false })) : r
+    );
+    let updated = temp.filter((r, index) => index === ind);
+    let final = date.map((r, index) =>
+      index === ind ? { ...r, time: updated[0] } : r
+    );
+    setData(final);
+  };
+  const handleCheck = (event, id, index, last) => {
+    let temp = date.map((r) =>
+      r.id === id
+        ? r.time.map((e) =>
+            e.value === event.target.name
+              ? { ...e, isChecked: !e.isChecked }
+              : e
+          )
+        : r
+    );
+    let updated = temp.filter((r, index) => index === last);
+    let final = date.map((r) => (r.id === id ? { ...r, time: updated[0] } : r));
+    setData(final);
+  };
+  const yesterday = moment().subtract(1, "day");
+  const disablePastDt = (current) => {
+    return current.isAfter(yesterday);
+  };
   return (
     <div
       style={{
@@ -131,6 +281,7 @@ function Calendar() {
           {date.map((e, ind) => {
             let day = e?.date?.toString().slice(4, 8);
             let dateNo = e?.date?.toString().slice(7, 10);
+            console.log(!ind === collapse ? ind : ind === collapse)
             return (
               <div className="date-format-main">
                 <div className="date-format-outer">
@@ -153,11 +304,11 @@ function Calendar() {
                             paddingRight: "4px",
                             marginRight: "4px",
                           }}
-                          onClick={selectAll}
+                          onClick={() => selectAll(ind)}
                         >
                           select All
                         </span>
-                        <span onClick={clearAll}>clear All</span>
+                        <span onClick={() => clearAll(ind)}>clear All</span>
                       </p>
                     ) : (
                       ""
@@ -176,7 +327,10 @@ function Calendar() {
                     )}
                   </p>
                   <Collapse in={ind === collapse} timeout="auto" unmountOnExit>
-                    <div className="date-inner-left date-inner-sceond" key={e.date}>
+                    <div
+                      className="date-inner-left date-inner-sceond"
+                      key={e.date}
+                    >
                       <Grid spacing={2} container lg={12}>
                         <Grid
                           item
@@ -186,28 +340,28 @@ function Calendar() {
                             flexDirection: "column",
                             position: "relative",
                           }}
-                          
-                          onClick={() => cK(ind,collapse)}
                         >
                           <Test
                             handleCheck={handleCheck}
-                            checked={checked}
-                            time={e.date}
-                            no={dateNo}
-                            data={time.slice(0, 7)}
+                            id={e.id}
+                            data={e.time.slice(0, 10)}
+                            ind={ind}
                           />
                         </Grid>
                         <Grid
                           item
                           xs={6}
-                          style={{ display: "flex", flexDirection: "column" }}
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            position: "relative",
+                          }}
                         >
                           <Test
                             handleCheck={handleCheck}
-                            checked={checked}
-                            time={e.date}
-                            no={dateNo}
-                            data={time.slice(7, 14)}
+                            id={e.id}
+                            data={e.time.slice(10, 20)}
+                            ind={ind}
                           />
                         </Grid>
                       </Grid>
@@ -244,6 +398,7 @@ function Calendar() {
                 onDayClick={select === false ? handleDayClick2 : handleDayClick}
                 mode={select === false ? "single" : "multiple"}
                 modifiers={modifiers}
+                isValidDate={disablePastDt}
                 className="calendar-inner"
                 minDate={new Date()}
                 modifiersStyles={modifiersStyles}
@@ -267,71 +422,3 @@ function Calendar() {
   );
 }
 export default Calendar;
-
-const time = [
-  {
-    value: "08:00",
-  },
-  {
-    value: "09:00",
-  },
-  {
-    value: "09:30",
-  },
-  {
-    value: "10:00",
-  },
-  {
-    value: "11:00",
-  },
-  {
-    value: "11:30",
-  },
-  {
-    value: "12:00",
-  },
-  {
-    value: "13:00",
-  },
-  {
-    value: "14:00",
-  },
-  {
-    value: "15:30",
-  },
-  {
-    value: "16:00",
-  },
-  {
-    value: "17:00",
-  },
-  {
-    value: "18:30",
-  },
-  {
-    value: "19:00",
-  },
-];
-const time2 = [
-  {
-    value: "13:00",
-  },
-  {
-    value: "14:00",
-  },
-  {
-    value: "15:30",
-  },
-  {
-    value: "16:00",
-  },
-  {
-    value: "17:00",
-  },
-  {
-    value: "18:30",
-  },
-  {
-    value: "19:00",
-  },
-];
