@@ -71,31 +71,31 @@ function Calendar() {
           isChecked: false,
         },
         {
-          value: "13:00",
+          value: "20:00",
           isChecked: false,
         },
         {
-          value: "14:00",
+          value: "20:30",
           isChecked: false,
         },
         {
-          value: "15:30",
+          value: "21:00",
           isChecked: false,
         },
         {
-          value: "16:00",
+          value: "22:00",
           isChecked: false,
         },
         {
-          value: "17:00",
+          value: "23:00",
           isChecked: false,
         },
         {
-          value: "18:30",
+          value: "23:30",
           isChecked: false,
         },
         {
-          value: "19:00",
+          value: "24:00",
           isChecked: false,
         },
       ],
@@ -169,6 +169,75 @@ function Calendar() {
             isChecked: false,
           },
           {
+            value: "20:00",
+            isChecked: false,
+          },
+          {
+            value: "20:30",
+            isChecked: false,
+          },
+          {
+            value: "21:00",
+            isChecked: false,
+          },
+          {
+            value: "22:00",
+            isChecked: false,
+          },
+          {
+            value: "23:00",
+            isChecked: false,
+          },
+          {
+            value: "23:30",
+            isChecked: false,
+          },
+          {
+            value: "24:00",
+            isChecked: false,
+          },
+        ],
+      });
+    }
+
+    setData(selectedDays);
+  };
+  const handleDayClick2 = (day, { selected }) => {
+    setData("")
+    setData([
+      {
+        date: selected ? new Date() : day,
+        id: 1,
+        time: [
+          {
+            value: "08:00",
+            isChecked: false,
+          },
+          {
+            value: "09:00",
+            isChecked: false,
+          },
+          {
+            value: "09:30",
+            isChecked: false,
+          },
+          {
+            value: "10:00",
+            isChecked: false,
+          },
+          {
+            value: "11:00",
+            isChecked: false,
+          },
+          {
+            value: "11:30",
+            isChecked: false,
+          },
+          {
+            value: "12:00",
+            isChecked: false,
+          },
+          {
             value: "13:00",
             isChecked: false,
           },
@@ -196,16 +265,39 @@ function Calendar() {
             value: "19:00",
             isChecked: false,
           },
+          {
+            value: "20:00",
+            isChecked: false,
+          },
+          {
+            value: "20:30",
+            isChecked: false,
+          },
+          {
+            value: "21:00",
+            isChecked: false,
+          },
+          {
+            value: "22:00",
+            isChecked: false,
+          },
+          {
+            value: "23:00",
+            isChecked: false,
+          },
+          {
+            value: "23:30",
+            isChecked: false,
+          },
+          {
+            value: "24:00",
+            isChecked: false,
+          },
         ],
-      });
-    }
-
-    setData(selectedDays);
+      },
+    ]);
   };
-  const handleDayClick2 = (day, { selected }) => {
-    setData("");
-    setData([{ date: selected ? new Date() : day }]);
-  };
+  console.log(date, "------------");
   const handleExpandClick = (value) => {
     if (collapse === value) {
       setCollapse("");
@@ -281,7 +373,7 @@ function Calendar() {
           {date.map((e, ind) => {
             let day = e?.date?.toString().slice(4, 8);
             let dateNo = e?.date?.toString().slice(7, 10);
-            console.log(!ind === collapse ? ind : ind === collapse)
+            console.log(!ind === collapse ? ind : ind === collapse);
             return (
               <div className="date-format-main">
                 <div className="date-format-outer">
@@ -396,7 +488,7 @@ function Calendar() {
                 selectedDays={date.map((r) => r.date)}
                 disabledDays={{ before: today }}
                 onDayClick={select === false ? handleDayClick2 : handleDayClick}
-                mode={select === false ? "single" : "multiple"}
+                // mode={select === false ? "single" : "multiple"}
                 modifiers={modifiers}
                 isValidDate={disablePastDt}
                 className="calendar-inner"
