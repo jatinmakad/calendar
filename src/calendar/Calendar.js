@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DayPicker from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import Collapse from "@material-ui/core/Collapse";
@@ -7,12 +7,16 @@ import "../App.css";
 import { Grid } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import Test from "../Test";
+import 'react-calendar/dist/Calendar.css';
 import moment from "moment";
 function Calendar() {
+  const [allselect, setAllSelected] = useState(false);
   const [date, setData] = useState([
     {
       date: new Date(),
       id: 1,
+      select: false,
+      clear: false,
       time: [
         {
           value: "08:00",
@@ -104,6 +108,7 @@ function Calendar() {
   const [collapse, setCollapse] = useState(0);
   const [select, setSelected] = useState(false);
   const handleDayClick = (day, { selected }) => {
+    console.log(collapse, "collapse");
     const selectedDays = date.concat();
     if (selected) {
     } else {
@@ -111,6 +116,8 @@ function Calendar() {
       selectedDays.push({
         date: day,
         id: no,
+        select: false,
+        clear: false,
         time: [
           {
             value: "08:00",
@@ -202,12 +209,18 @@ function Calendar() {
 
     setData(selectedDays);
   };
+  useEffect(() => {
+    setCollapse(date.length - 1);
+  }, [date.length]);
   const handleDayClick2 = (day, { selected }) => {
-    setData("")
+    setData("");
+
     setData([
       {
         date: selected ? new Date() : day,
         id: 1,
+        select: false,
+        clear: false,
         time: [
           {
             value: "08:00",
@@ -297,10 +310,9 @@ function Calendar() {
       },
     ]);
   };
-  console.log(date, "------------");
   const handleExpandClick = (value) => {
     if (collapse === value) {
-      setCollapse("");
+      setCollapse(0);
     } else {
       setCollapse(value);
     }
@@ -326,7 +338,7 @@ function Calendar() {
     );
     let updated = temp.filter((r, index) => index === ind);
     let final = date.map((r, index) =>
-      index === ind ? { ...r, time: updated[0] } : r
+      index === ind ? { ...r, time: updated[0], select: true,clear:false } : r
     );
     setData(final);
   };
@@ -336,7 +348,7 @@ function Calendar() {
     );
     let updated = temp.filter((r, index) => index === ind);
     let final = date.map((r, index) =>
-      index === ind ? { ...r, time: updated[0] } : r
+      index === ind ? { ...r, time: updated[0], clear: true,select:false } : r
     );
     setData(final);
   };
@@ -351,12 +363,18 @@ function Calendar() {
         : r
     );
     let updated = temp.filter((r, index) => index === last);
-    let final = date.map((r) => (r.id === id ? { ...r, time: updated[0] } : r));
+    let final = date.map((r) => (r.id === id ? { ...r, time: updated[0],select:false,clear:false } : r));
     setData(final);
   };
+  useEffect(() => {
+    setAllSelected(false);
+  }, [date]);
   const yesterday = moment().subtract(1, "day");
   const disablePastDt = (current) => {
     return current.isAfter(yesterday);
+  };
+  const onSubmit = () => {
+    setAllSelected(true);
   };
   return (
     <div
@@ -373,7 +391,6 @@ function Calendar() {
           {date.map((e, ind) => {
             let day = e?.date?.toString().slice(4, 8);
             let dateNo = e?.date?.toString().slice(7, 10);
-            console.log(!ind === collapse ? ind : ind === collapse);
             return (
               <div className="date-format-main">
                 <div className="date-format-outer">
@@ -383,9 +400,13 @@ function Calendar() {
                       border: ind === collapse ? "" : "2px solid #FF7070",
                       background: ind === collapse ? "" : "#fff",
                       borderRadius: ind === collapse ? " " : "15px",
+                      cursor: "pointer",
                     }}
                   >
-                    <span className="date-format-span">
+                    <span
+                      className="date-format-span"
+                      onClick={() => handleExpandClick(ind)}
+                    >
                       {dateNo} {day}
                     </span>
                     {ind === collapse ? (
@@ -395,12 +416,18 @@ function Calendar() {
                             borderRight: "2px solid black",
                             paddingRight: "4px",
                             marginRight: "4px",
+                            color: e.select ? "gray" : "black",
                           }}
                           onClick={() => selectAll(ind)}
                         >
                           select All
                         </span>
-                        <span onClick={() => clearAll(ind)}>clear All</span>
+                        <span
+                          onClick={() => clearAll(ind)}
+                          style={{ color: e.clear ? "gray" : "black" }}
+                        >
+                          clear All
+                        </span>
                       </p>
                     ) : (
                       ""
@@ -463,7 +490,14 @@ function Calendar() {
               </div>
             );
           })}
-          <button className="update">Update Calendar</button>
+          <button
+            className="update"
+            disabled={allselect}
+            style={{ background: !allselect ? "#FF7070" : "gray" }}
+            onClick={onSubmit}
+          >
+            Update Calendar
+          </button>
         </div>
         <div className="second second-right">
           <div className="inner demo-second">
@@ -489,6 +523,7 @@ function Calendar() {
                 disabledDays={{ before: today }}
                 onDayClick={select === false ? handleDayClick2 : handleDayClick}
                 // mode={select === false ? "single" : "multiple"}
+                calendarType='US'
                 modifiers={modifiers}
                 isValidDate={disablePastDt}
                 className="calendar-inner"
