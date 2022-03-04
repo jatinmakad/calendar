@@ -13,23 +13,27 @@
   border-radius: 15px;
   margin-bottom: 20px;
 }
-.date-format-main {
+.demo-main {
+  max-height: 500px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 .date-inner-sceond {
   background: #fff1f1;
 }
 .demo-left {
+  position: relative;
   border: 4px solid #ff7070;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-left: 5px;
   padding-right: 5px;
   padding-bottom: 10PX;
-  border-top-left-radius: 80px;
-  max-height: 500px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
 }
-.demo-left::-webkit-scrollbar {
+.demo-main::-webkit-scrollbar {
   width: 0;
 }
 .date-inner-left {
@@ -72,7 +76,6 @@
   width: 100%;
   padding: 10px 0;
   border: none;
- 
   color: #fff;
   font-weight: 500;
   font-size: 20px;

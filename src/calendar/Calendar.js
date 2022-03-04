@@ -7,8 +7,9 @@ import "../App.css";
 import { Grid } from "@material-ui/core";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import Test from "../Test";
-import 'react-calendar/dist/Calendar.css';
-import moment from "moment";
+import "react-calendar/dist/Calendar.css";
+import moment from "moment-timezone";
+import { Demo } from "../Demo";
 function Calendar() {
   const [allselect, setAllSelected] = useState(false);
   const [date, setData] = useState([
@@ -17,98 +18,12 @@ function Calendar() {
       id: 1,
       select: false,
       clear: false,
-      time: [
-        {
-          value: "08:00",
-          isChecked: false,
-        },
-        {
-          value: "09:00",
-          isChecked: false,
-        },
-        {
-          value: "09:30",
-          isChecked: false,
-        },
-        {
-          value: "10:00",
-          isChecked: false,
-        },
-        {
-          value: "11:00",
-          isChecked: false,
-        },
-        {
-          value: "11:30",
-          isChecked: false,
-        },
-        {
-          value: "12:00",
-          isChecked: false,
-        },
-        {
-          value: "13:00",
-          isChecked: false,
-        },
-        {
-          value: "14:00",
-          isChecked: false,
-        },
-        {
-          value: "15:30",
-          isChecked: false,
-        },
-        {
-          value: "16:00",
-          isChecked: false,
-        },
-        {
-          value: "17:00",
-          isChecked: false,
-        },
-        {
-          value: "18:30",
-          isChecked: false,
-        },
-        {
-          value: "19:00",
-          isChecked: false,
-        },
-        {
-          value: "20:00",
-          isChecked: false,
-        },
-        {
-          value: "20:30",
-          isChecked: false,
-        },
-        {
-          value: "21:00",
-          isChecked: false,
-        },
-        {
-          value: "22:00",
-          isChecked: false,
-        },
-        {
-          value: "23:00",
-          isChecked: false,
-        },
-        {
-          value: "23:30",
-          isChecked: false,
-        },
-        {
-          value: "24:00",
-          isChecked: false,
-        },
-      ],
+      time: Demo,
     },
   ]);
   const [collapse, setCollapse] = useState(0);
   const [select, setSelected] = useState(false);
   const handleDayClick = (day, { selected }) => {
-    console.log(collapse, "collapse");
     const selectedDays = date.concat();
     if (selected) {
     } else {
@@ -118,197 +33,46 @@ function Calendar() {
         id: no,
         select: false,
         clear: false,
-        time: [
-          {
-            value: "08:00",
-            isChecked: false,
-          },
-          {
-            value: "09:00",
-            isChecked: false,
-          },
-          {
-            value: "09:30",
-            isChecked: false,
-          },
-          {
-            value: "10:00",
-            isChecked: false,
-          },
-          {
-            value: "11:00",
-            isChecked: false,
-          },
-          {
-            value: "11:30",
-            isChecked: false,
-          },
-          {
-            value: "12:00",
-            isChecked: false,
-          },
-          {
-            value: "13:00",
-            isChecked: false,
-          },
-          {
-            value: "14:00",
-            isChecked: false,
-          },
-          {
-            value: "15:30",
-            isChecked: false,
-          },
-          {
-            value: "16:00",
-            isChecked: false,
-          },
-          {
-            value: "17:00",
-            isChecked: false,
-          },
-          {
-            value: "18:30",
-            isChecked: false,
-          },
-          {
-            value: "19:00",
-            isChecked: false,
-          },
-          {
-            value: "20:00",
-            isChecked: false,
-          },
-          {
-            value: "20:30",
-            isChecked: false,
-          },
-          {
-            value: "21:00",
-            isChecked: false,
-          },
-          {
-            value: "22:00",
-            isChecked: false,
-          },
-          {
-            value: "23:00",
-            isChecked: false,
-          },
-          {
-            value: "23:30",
-            isChecked: false,
-          },
-          {
-            value: "24:00",
-            isChecked: false,
-          },
-        ],
+        time: Demo,
       });
     }
-
     setData(selectedDays);
   };
-  useEffect(() => {
-    setCollapse(date.length - 1);
-  }, [date.length]);
-  const handleDayClick2 = (day, { selected }) => {
-    setData("");
 
-    setData([
-      {
-        date: selected ? new Date() : day,
-        id: 1,
-        select: false,
-        clear: false,
-        time: [
-          {
-            value: "08:00",
-            isChecked: false,
-          },
-          {
-            value: "09:00",
-            isChecked: false,
-          },
-          {
-            value: "09:30",
-            isChecked: false,
-          },
-          {
-            value: "10:00",
-            isChecked: false,
-          },
-          {
-            value: "11:00",
-            isChecked: false,
-          },
-          {
-            value: "11:30",
-            isChecked: false,
-          },
-          {
-            value: "12:00",
-            isChecked: false,
-          },
-          {
-            value: "13:00",
-            isChecked: false,
-          },
-          {
-            value: "14:00",
-            isChecked: false,
-          },
-          {
-            value: "15:30",
-            isChecked: false,
-          },
-          {
-            value: "16:00",
-            isChecked: false,
-          },
-          {
-            value: "17:00",
-            isChecked: false,
-          },
-          {
-            value: "18:30",
-            isChecked: false,
-          },
-          {
-            value: "19:00",
-            isChecked: false,
-          },
-          {
-            value: "20:00",
-            isChecked: false,
-          },
-          {
-            value: "20:30",
-            isChecked: false,
-          },
-          {
-            value: "21:00",
-            isChecked: false,
-          },
-          {
-            value: "22:00",
-            isChecked: false,
-          },
-          {
-            value: "23:00",
-            isChecked: false,
-          },
-          {
-            value: "23:30",
-            isChecked: false,
-          },
-          {
-            value: "24:00",
-            isChecked: false,
-          },
-        ],
-      },
-    ]);
+  const handleDayClick2 = (day, { selected }) => {
+    // if(select === false) {
+    //   setData(old =>
+    //     [...old,{
+    //       date: selected ? new Date() : day,
+    //       id: date.length + 1,
+    //       select: false,
+    //       clear: false,
+    //       time: Demo,
+    //     }]
+    //   )
+    // date.push({
+    //   date: selected ? new Date() : day,
+    //   id: date.length + 1,
+    //   select: false,
+    //   clear: false,
+    //   time: Demo,
+    // })
+    // } else {
+    let sum = date.map((r) => {
+      return r.id === date.length
+        ? {
+            ...r,
+            date: selected ? new Date() : day,
+            id: date.length,
+            select: false,
+            clear: false,
+            time: Demo,
+          }
+        : r;
+    });
+    setData(sum);
+    // }
+    //  console.log(sum,"sum")
   };
   const handleExpandClick = (value) => {
     if (collapse === value) {
@@ -338,7 +102,7 @@ function Calendar() {
     );
     let updated = temp.filter((r, index) => index === ind);
     let final = date.map((r, index) =>
-      index === ind ? { ...r, time: updated[0], select: true,clear:false } : r
+      index === ind ? { ...r, time: updated[0], select: true, clear: false } : r
     );
     setData(final);
   };
@@ -348,7 +112,7 @@ function Calendar() {
     );
     let updated = temp.filter((r, index) => index === ind);
     let final = date.map((r, index) =>
-      index === ind ? { ...r, time: updated[0], clear: true,select:false } : r
+      index === ind ? { ...r, time: updated[0], clear: true, select: false } : r
     );
     setData(final);
   };
@@ -363,19 +127,44 @@ function Calendar() {
         : r
     );
     let updated = temp.filter((r, index) => index === last);
-    let final = date.map((r) => (r.id === id ? { ...r, time: updated[0],select:false,clear:false } : r));
+    let final = date.map((r) =>
+      r.id === id ? { ...r, time: updated[0], select: false, clear: false } : r
+    );
     setData(final);
   };
   useEffect(() => {
-    setAllSelected(false);
-  }, [date]);
+    if (date) {
+      setAllSelected(false);
+    }
+    if (date.length) {
+      setCollapse(date.length - 1);
+    }
+  }, [date.length,date]);
+  // useEffect(() => {
+  //   const data = localStorage.getItem("Date");
+  //   if (data) {
+  //     let up = JSON.parse(data);
+  //     let temp = up.map((r) => {
+  //       return r ? { ...r, date: moment(r.date)?.tz("Asia/Calcutta")._d } : "";
+  //     });
+  //     setData(temp);
+  //   }
+  // }, []);
   const yesterday = moment().subtract(1, "day");
   const disablePastDt = (current) => {
     return current.isAfter(yesterday);
   };
   const onSubmit = () => {
     setAllSelected(true);
+    // localStorage.setItem("Date", JSON.stringify(date));
+    // const data = localStorage.getItem("Date");
+    // let up = JSON.parse(data);
+    // let temp = up.map((r) => {
+    //   return r ? { ...r, date: moment(r.date)?.tz("Asia/Calcutta")._d } : "";
+    // });
+    // setData(temp);
   };
+  console.log(allselect);
   return (
     <div
       style={{
@@ -388,108 +177,114 @@ function Calendar() {
     >
       <div className="number">
         <div style={{ flex: ".5" }} className="demo-left">
-          {date.map((e, ind) => {
-            let day = e?.date?.toString().slice(4, 8);
-            let dateNo = e?.date?.toString().slice(7, 10);
-            return (
-              <div className="date-format-main">
-                <div className="date-format-outer">
-                  <p
-                    className="date-format"
-                    style={{
-                      border: ind === collapse ? "" : "2px solid #FF7070",
-                      background: ind === collapse ? "" : "#fff",
-                      borderRadius: ind === collapse ? " " : "15px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <span
-                      className="date-format-span"
-                      onClick={() => handleExpandClick(ind)}
+          <div className="demo-main">
+            {date.map((e, ind) => {
+              let day = e?.date?.toString().slice(4, 8);
+              let dateNo = e?.date?.toString().slice(7, 10);
+              return (
+                <div className="date-format-main">
+                  <div className="date-format-outer">
+                    <p
+                      className="date-format"
+                      style={{
+                        border: ind === collapse ? "" : "2px solid #FF7070",
+                        background: ind === collapse ? "" : "#fff",
+                        borderRadius: ind === collapse ? " " : "15px",
+                        cursor: "pointer",
+                      }}
                     >
-                      {dateNo} {day}
-                    </span>
-                    {ind === collapse ? (
-                      <p className="select-all">
-                        <span
-                          style={{
-                            borderRight: "2px solid black",
-                            paddingRight: "4px",
-                            marginRight: "4px",
-                            color: e.select ? "gray" : "black",
-                          }}
-                          onClick={() => selectAll(ind)}
-                        >
-                          select All
-                        </span>
-                        <span
-                          onClick={() => clearAll(ind)}
-                          style={{ color: e.clear ? "gray" : "black" }}
-                        >
-                          clear All
-                        </span>
-                      </p>
-                    ) : (
-                      ""
-                    )}
-
-                    {date.length >= 2 ? (
-                      <KeyboardArrowDownIcon
+                      <span
+                        className="date-format-span"
                         onClick={() => handleExpandClick(ind)}
-                        key={ind}
-                        style={{
-                          transform: ind === collapse ? "rotate(180deg)" : "",
-                        }}
-                      />
-                    ) : (
-                      ""
-                    )}
-                  </p>
-                  <Collapse in={ind === collapse} timeout="auto" unmountOnExit>
-                    <div
-                      className="date-inner-left date-inner-sceond"
-                      key={e.date}
+                      >
+                        {dateNo} {day}
+                      </span>
+                      {ind === collapse ? (
+                        <p className="select-all">
+                          <span
+                            style={{
+                              borderRight: "2px solid black",
+                              paddingRight: "4px",
+                              marginRight: "4px",
+                              color: e.select ? "gray" : "black",
+                            }}
+                            onClick={() => selectAll(ind)}
+                          >
+                            select All
+                          </span>
+                          <span
+                            onClick={() => clearAll(ind)}
+                            style={{ color: e.clear ? "gray" : "black" }}
+                          >
+                            clear All
+                          </span>
+                        </p>
+                      ) : (
+                        ""
+                      )}
+
+                      {date.length >= 2 ? (
+                        <KeyboardArrowDownIcon
+                          onClick={() => handleExpandClick(ind)}
+                          key={ind}
+                          style={{
+                            transform: ind === collapse ? "rotate(180deg)" : "",
+                          }}
+                        />
+                      ) : (
+                        ""
+                      )}
+                    </p>
+                    <Collapse
+                      in={ind === collapse}
+                      timeout="auto"
+                      unmountOnExit
                     >
-                      <Grid spacing={2} container lg={12}>
-                        <Grid
-                          item
-                          xs={6}
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            position: "relative",
-                          }}
-                        >
-                          <Test
-                            handleCheck={handleCheck}
-                            id={e.id}
-                            data={e.time.slice(0, 10)}
-                            ind={ind}
-                          />
+                      <div
+                        className="date-inner-left date-inner-sceond"
+                        key={e.date}
+                      >
+                        <Grid spacing={2} container lg={12}>
+                          <Grid
+                            item
+                            xs={6}
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              position: "relative",
+                            }}
+                          >
+                            <Test
+                              handleCheck={handleCheck}
+                              id={e.id}
+                              data={e?.time?.slice(0, 10)}
+                              ind={ind}
+                            />
+                          </Grid>
+                          <Grid
+                            item
+                            xs={6}
+                            style={{
+                              display: "flex",
+                              flexDirection: "column",
+                              position: "relative",
+                            }}
+                          >
+                            <Test
+                              handleCheck={handleCheck}
+                              id={e.id}
+                              data={e?.time?.slice(10, 20)}
+                              ind={ind}
+                            />
+                          </Grid>
                         </Grid>
-                        <Grid
-                          item
-                          xs={6}
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            position: "relative",
-                          }}
-                        >
-                          <Test
-                            handleCheck={handleCheck}
-                            id={e.id}
-                            data={e.time.slice(10, 20)}
-                            ind={ind}
-                          />
-                        </Grid>
-                      </Grid>
-                    </div>
-                  </Collapse>
+                      </div>
+                    </Collapse>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
           <button
             className="update"
             disabled={allselect}
@@ -523,7 +318,7 @@ function Calendar() {
                 disabledDays={{ before: today }}
                 onDayClick={select === false ? handleDayClick2 : handleDayClick}
                 // mode={select === false ? "single" : "multiple"}
-                calendarType='US'
+                calendarType="US"
                 modifiers={modifiers}
                 isValidDate={disablePastDt}
                 className="calendar-inner"
