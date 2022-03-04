@@ -23,10 +23,8 @@ function Calendar() {
   ]);
   const [collapse, setCollapse] = useState(0);
   const [select, setSelected] = useState(false);
-  const handleDayClick = (day, { selected }) => {
+  const handleDayClick = (day) => {
     const selectedDays = date.concat();
-    if (selected) {
-    } else {
       let no = date.length + 1;
       selectedDays.push({
         date: day,
@@ -35,29 +33,10 @@ function Calendar() {
         clear: false,
         time: Demo,
       });
-    }
     setData(selectedDays);
   };
 
   const handleDayClick2 = (day, { selected }) => {
-    // if(select === false) {
-    //   setData(old =>
-    //     [...old,{
-    //       date: selected ? new Date() : day,
-    //       id: date.length + 1,
-    //       select: false,
-    //       clear: false,
-    //       time: Demo,
-    //     }]
-    //   )
-    // date.push({
-    //   date: selected ? new Date() : day,
-    //   id: date.length + 1,
-    //   select: false,
-    //   clear: false,
-    //   time: Demo,
-    // })
-    // } else {
     let sum = date.map((r) => {
       return r.id === date.length
         ? {
@@ -71,8 +50,6 @@ function Calendar() {
         : r;
     });
     setData(sum);
-    // }
-    //  console.log(sum,"sum")
   };
   const handleExpandClick = (value) => {
     if (collapse === value) {
@@ -164,7 +141,6 @@ function Calendar() {
     // });
     // setData(temp);
   };
-  console.log(allselect);
   return (
     <div
       style={{
@@ -317,7 +293,6 @@ function Calendar() {
                 selectedDays={date.map((r) => r.date)}
                 disabledDays={{ before: today }}
                 onDayClick={select === false ? handleDayClick2 : handleDayClick}
-                // mode={select === false ? "single" : "multiple"}
                 calendarType="US"
                 modifiers={modifiers}
                 isValidDate={disablePastDt}
